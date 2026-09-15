@@ -1,0 +1,19 @@
+version: 1
+jobs:
+  build-and-test:
+    # TurtleCI uses 'builder' to specify the operating system environment
+    builder:
+      - macos
+    
+    steps:
+      # TurtleCI uses 'uses: checkout' to clone your repository
+      - uses: checkout
+      
+      # TurtleCI uses 'run:' to execute command line scripts
+      - name: Install Dependencies
+        run: |
+          pod install --repo-update
+          
+      - name: Run Tests
+        run: |
+          xcodebuild test -workspace MyApp.xcworkspace -scheme MyApp -destination 'platform=iOS Simulator,name=iPhone 15'
