@@ -1,4 +1,3 @@
-# .turtleci.yml
 version: "1.0"
 name: Download Torrent and Upload to Filemirage
 
